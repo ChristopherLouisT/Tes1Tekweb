@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body style="background-color: gainsboro;">
+
+    <div class = "row g-0">
+        <div class = "col-md-12">
+            <nav class = "navbar navbar-expand-sm bg-info navbar-dark">
+                <div class = "container-fluid">
+                    <a class = "navbar-brand fw-bolder" href = #>Kanban View</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class = "row g-0 ms-3" style="background-color: gainsboro;">
+        <div class = "col-md-4">
+            <p class = "mb-0">Tugas</p>
+            <div class = "input-group">
+                <input id = "tugas" type = "text" class = "form-control" style="width: 10px;">
+            </div>
+
+            <p class = "mb-0">Status</p>
+            <div class = "input-group">
+                <select id = "status" class = "select" style="width: 1000px;">
+                    <option value="pending">pending</option>
+                    <option value="planning">planning</option>
+                    <option value="design">design</option>
+                    <option value="development">development</option>
+                    <option value="testing">testing</option>
+                    <option value="resolved">resolved</option>
+                </select>
+            </div>
+
+            <div class = "input-group">
+                <button onclick = makeCard() id = "tambah" class = "btn btn-primary mt-1">Tambah</button>
+            </div>
+        </div>
+    </div>
+
+    <div class = "row">
+
+        <div id = "pending" class = "col bg-white mt-2 ms-3" >
+            <div class = "row g-1">
+            <p style="background-color: gainsboro;">Pending</p>
+            </div>
+            <!-- <div class = "row">
+                <div class = "col-md-12">
+                    <div class="card gainsboro" style="width: auto;">
+                        <div class="card-body">
+                            <h5 class="card-title">Membuat Database</h5>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <div id = "planning" class = "col bg-white mt-2 ms-3 border border-dark">
+            <p style="background-color: gainsboro;">Planning</p>
+        </div>
+
+        <div id = "design" class = "col bg-white mt-2 ms-3 border border-dark" >
+            <p style="background-color: gainsboro;">Design</p>
+        </div>
+
+        <div id = "development" class = "col bg-white mt-2 ms-3 border border-dark">
+            <p style="background-color: gainsboro;">Development</p>
+        </div>
+
+        <div id = "testing" class = "col bg-white mt-2 ms-3 border border-dark">
+            <p style="background-color: gainsboro;">Testing</p>
+        </div>
+
+        <div id="resolved" class = "col bg-white mt-2 ms-3 border border-dark">
+            <p style="background-color: gainsboro;">Resolved</p>
+        </div>
+    </div>
+</body>
+
+<script>
+    function makeCard () {
+        let tugas = document.getElementById("tugas").value;
+        let status = document.getElementById("status").value;
+        let temp = "<div class = \"row\"> <div class = \"col-md-12\"> <div class=\"card gainsboro\" style=\"width: auto;\"> <div class=\"card-body\"> <h5 class=\"card-title\">";
+            temp += tugas;
+            temp += "</h5> </div> </div> </div> </div>";
+        
+            if (status == 'pending') {
+                document.getElementById("pending").innerHTML += temp;
+            }
+            else if (status == 'planning') {
+                document.getElementById("planning").innerHTML += temp;
+            }
+
+            else if (status == 'design') {
+                document.getElementById("design").innerHTML += temp;
+            }
+
+            else if (status == 'development') {
+                document.getElementById("development").innerHTML += temp;
+            }
+
+            else if (status == 'testing') {
+                document.getElementById("testing").innerHTML += temp;
+            }
+
+            else if (status == 'resolved') {
+                document.getElementById("resolved").innerHTML += temp;
+            }
+        }
+        // function makeCard() {
+        //     let tugas = $('#tugas').val();
+        //     let status = $('#status').val().toLowerCase();
+        //     let temp = '<div class = "row"> <div class = "col-md-12"> <div class="card" style="width: auto;"> <div class="card-body"> <h5 class="card-title">';
+        //         temp += tugas;
+        //         temp += '</h5> </div> </div> </div> </div>'
+
+        //     if (status == 'pending') {
+        //         $('#pending').html(temp);
+        //     }
+        //     else if (status == 'planning') {
+        //         $('#planning').html(temp);
+        //     }
+
+        //     else if (status == 'design') {
+        //         $('#design').html(temp);
+        //     }
+
+        //     else if (status == 'development') {
+        //         $('#development').html(temp);
+        //     }
+
+        //     else if (status == 'testing') {
+        //         $('#testing').html(temp);
+        //     }
+
+        //     else if (status == 'resolved') {
+        //         $('#resolved').html(temp);
+        //     }
+        // }
+</script>
